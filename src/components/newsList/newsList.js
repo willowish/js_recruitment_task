@@ -1,8 +1,8 @@
 import { element } from '../common/element/element';
-import { news } from './news/news';
+import { newsEntry } from './news/newsEntry';
 import { getNewsList } from '../../services/newsService';
 
-const getList = (newsList) => newsList.map((n) => news(n));
+const getList = (newsList) => newsList.map((n) => newsEntry(n));
 
 export const newsList = () =>
     element('div', {

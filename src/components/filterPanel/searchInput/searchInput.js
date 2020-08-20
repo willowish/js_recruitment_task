@@ -2,7 +2,7 @@ import { element } from '../../common/element/element';
 import { setSearch } from '../../../services/newsService';
 
 export const searchInput = () => {
-    const onKeyUp = ({ target: { value } }) => {
+    const onkeyup = ({ target: { value } }) => {
         setSearch(value);
     };
 
@@ -10,7 +10,7 @@ export const searchInput = () => {
         props: {
             id: 'newsContentSearch',
             className: 'container filtersContainer',
-            onkeyup: onKeyUp,
+            onkeyup,
         },
     });
 };
