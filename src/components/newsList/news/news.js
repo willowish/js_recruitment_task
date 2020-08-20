@@ -1,10 +1,11 @@
-import { element } from '../../element/element';
+import { element } from '../../common/element/element';
+import { addNewsToReadLater } from '../../../services/readLaterService';
 
 export const news = ({ webTitle, webPublicationDate, webUrl, sectionName }) => {
-    return element('li', {
+    return element('div', {
         children: [
             element('article', {
-                props: { className: 'news' },
+                props: { className: 'news shadow' },
                 children: [
                     newsTitle(webTitle),
                     newsDetails(webPublicationDate, sectionName),
@@ -44,6 +45,10 @@ export const newsDetails = (webPublicationDate, sectionName) => {
 };
 
 export const newsActions = (webUrl) => {
+    const onclick = () => {
+        addNewsToReadLater(webUrl);
+    };
+
     return element('section', {
         props: { className: 'newsActions' },
         children: [
@@ -51,7 +56,11 @@ export const newsActions = (webUrl) => {
                 props: { href: webUrl, className: 'button', innerText: 'Full article' },
             }),
             element('button', {
-                props: { className: 'button button-outline', innerText: 'Read Later' },
+                props: {
+                    className: 'button button-outline',
+                    innerText: 'Read Later',
+                    onclick,
+                },
             }),
         ],
     });

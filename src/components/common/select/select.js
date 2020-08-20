@@ -1,4 +1,4 @@
-import { element } from '../../element/element';
+import { element } from '../element/element';
 
 const option = (value) =>
     element('option', {

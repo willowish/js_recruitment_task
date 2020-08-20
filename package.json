@@ -32,5 +32,8 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0"
   }
 }

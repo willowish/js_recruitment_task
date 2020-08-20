@@ -1,4 +1,4 @@
-import { element } from '../../element/element';
+import { element } from '../../common/element/element';
 import { setSearch } from '../../../services/newsService';
 
 export const searchInput = () => {

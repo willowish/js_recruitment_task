@@ -1,6 +1,6 @@
 import { performGet } from './httpService';
-import { getDateRange } from './dateRangeGenerator';
 import { EVENTS } from './events/events';
+import { getUrlForInitialLoad, getUrlWithFilters } from './utils/urlBuilder';
 
 const filters = {
     searchText: '',
@@ -15,26 +15,23 @@ const newsListPageable = {
 
 export const setSearch = (searchText) => {
     filters.searchText = searchText;
-    performFiltering();
+    applyFilters();
 };
 
 export const setSelectedPage = (page) => {
-    newsListPageable.page = page;
-    performFiltering();
+    filters.page = page;
+    applyFilters();
 };
 
 export const setSelectedSection = (section) => {
     filters.section = section;
-    performFiltering();
+    applyFilters();
 };
 
-const performFiltering = async () => {
-    const sectionQuery = filters.section ? `&section=${filters.section}` : '';
-    const searchQuery = filters.searchText ? `&q=${filters.searchText}` : '';
-    const url = `search?page=${newsListPageable.page}${sectionQuery}${searchQuery}`;
+const applyFilters = async () => {
     const {
         response: { results, pages },
-    } = await performGet(url);
+    } = await performGet(getUrlWithFilters(filters));
 
     newsListPageable.list = results;
     newsListPageable.pages = pages;
@@ -42,19 +39,21 @@ const performFiltering = async () => {
 };
 
 export const loadInitialNews = async () => {
-    const dateRange = getDateRange();
-    const url = `search?page=${1}&${dateRange}`;
     const {
         response: { results, currentPage, pages },
-    } = await performGet(url);
+    } = await performGet(getUrlForInitialLoad());
 
     newsListPageable.list = results;
-    newsListPageable.page = currentPage;
     newsListPageable.pages = pages;
+    filters.page = currentPage;
 };
 
 export const getNewsList = () => newsListPageable?.list;
+
 export const getNewsPagingInfo = () => ({
-    page: newsListPageable.page,
+    page: filters.page,
     pages: newsListPageable.pages,
 });
+
+export const getNewsByWebUrl = (url) =>
+    newsListPageable.list.find((n) => n.webUrl === url);

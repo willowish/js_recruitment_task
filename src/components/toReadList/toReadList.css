@@ -1,0 +1,44 @@
+.to-read-list {
+  display: flex;
+  flex-direction: column;
+}
+.to-read-box {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 2px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.to-read-box > .title {
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 5px;
+}
+
+.to-read-box > .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.to-read-box > .footer > .section {
+  background: #9b4dca;
+  padding: 3px 5px;
+  text-align: center;
+  width: auto;
+  color: white;
+  border-radius: 15px;
+  font-size: 0.6em;
+  font-weight: 300;
+}
+
+.buttons > .icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
