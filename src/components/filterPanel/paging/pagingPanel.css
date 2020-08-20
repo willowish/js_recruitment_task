@@ -1,0 +1,25 @@
+.paging-panel-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.paging-panel-box {
+  display: flex;
+}
+
+.paging-panel-box > .paging-input {
+  width: auto;
+  margin: 0 5px;
+}
+
+.control-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+  color: black;
+}

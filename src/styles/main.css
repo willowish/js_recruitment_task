@@ -41,10 +41,17 @@
 
 .news {
   border: 1px solid rgba(88, 88, 88, 0.41);
-  max-width: 400px;
   padding: 20px;
   border-radius: 2px;
-  margin-bottom: 10px;
+  margin: 15px auto;
+  height: 325px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-title {
+  text-align: justify;
 }
 
 .newsActions {

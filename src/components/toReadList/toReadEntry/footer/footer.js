@@ -1,6 +1,6 @@
 import { element } from '../../../common/element/element';
-import { sectionChip } from '../title/sectionChip/sectionChip';
-import { buttons } from '../title/buttons/buttons';
+import { sectionChip } from './sectionChip/sectionChip';
+import { buttons } from './buttons/buttons';
 
 export const footer = (section, webUrl) =>
     element('div', {

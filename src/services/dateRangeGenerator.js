@@ -20,7 +20,7 @@ const getDaysInMilliseconds = (daysRange) => daysRange * 24 * 60 * 60 * 1000;
 export const getDateRangeFromGivenDaysToNow = (daysRange = 30) => {
     const maxDateTime = new Date(Date.now() - getDaysInMilliseconds(daysRange));
 
-    return `from-date=${getFormattedDateRange(
+    return `&from-date=${getFormattedDateRange(
         maxDateTime
     )}&to-date=${getFormattedDateRange(new Date())}`;
 };

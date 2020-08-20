@@ -1,4 +1,4 @@
-import { EVENTS } from './events/events';
+import { EVENTS } from '../events/events';
 import { getNewsByWebUrl } from './newsService';
 
 const READ_LATER_KEY = 'READ_LATER_LIST';
