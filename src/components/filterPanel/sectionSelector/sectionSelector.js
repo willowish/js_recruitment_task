@@ -1,5 +1,5 @@
 import { selectComponent } from '../../common/select/select';
-import { setSelectedSection } from '../../../services/newsService';
+import { setSelectedSection } from '../../../services/newsService/newsService';
 
 const sections = ['sport', 'books', 'business', 'culture'];
 

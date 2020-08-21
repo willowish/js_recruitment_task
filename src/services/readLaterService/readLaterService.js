@@ -1,36 +1,32 @@
-import { EVENTS } from '../events/events';
-import { getNewsByWebUrl } from './newsService';
+import { EVENTS } from '../../events/events';
+import { getNewsByWebUrl } from '../newsService/newsService';
 
-const READ_LATER_KEY = 'READ_LATER_LIST';
-
-let readLaterList = null;
+export const READ_LATER_KEY = 'READ_LATER_LIST';
 
 const getListFromLocalStorage = () => {
     const storedItems = localStorage.getItem(READ_LATER_KEY);
     return storedItems ? JSON.parse(storedItems) : [];
 };
 
-(() => {
-    readLaterList = getListFromLocalStorage();
-})();
-
-export const getReadLaterList = () => readLaterList;
+export const getReadLaterList = () => getListFromLocalStorage();
 
 export const addNewsToReadLater = (newsWebUrl) => {
+    const readLaterList = getListFromLocalStorage();
     if (readLaterList.some((n) => n.webUrl === newsWebUrl)) {
         return;
     }
     const news = getNewsByWebUrl(newsWebUrl);
-    readLaterList.push(news);
     localStorage.setItem(
         READ_LATER_KEY,
-        JSON.stringify([...getListFromLocalStorage(), news])
+        JSON.stringify([...readLaterList, news])
     );
     document.dispatchEvent(new Event(EVENTS.READ_LATER_LIST_CHANGED));
 };
 
 export const removeNewsFromReadLater = (newsWebUrl) => {
-    readLaterList = readLaterList.filter(({ webUrl }) => webUrl !== newsWebUrl);
+    const readLaterList = getListFromLocalStorage().filter(
+        ({ webUrl }) => webUrl !== newsWebUrl
+    );
     localStorage.setItem(READ_LATER_KEY, JSON.stringify(readLaterList));
     document.dispatchEvent(new Event(EVENTS.READ_LATER_LIST_CHANGED));
 };

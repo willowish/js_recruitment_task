@@ -13,6 +13,7 @@
 .paging-panel-box > .paging-input {
   width: auto;
   margin: 0 5px;
+  text-align: center;
 }
 
 .control-btn {
@@ -22,4 +23,16 @@
   height: 40px;
   cursor: pointer;
   color: black;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.paging-panel-box > .paging-input::-webkit-outer-spin-button,
+.paging-panel-box > .paging-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.paging-panel-box > .paging-input[type='number'] {
+  -moz-appearance: textfield;
 }

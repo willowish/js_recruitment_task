@@ -1,7 +1,7 @@
 import './styles/main.css';
 import '@fortawesome/fontawesome-free/js/all';
 import { newsList } from './components/newsList/newsList';
-import { loadInitialNews } from './services/newsService';
+import { loadInitialNews } from './services/newsService/newsService';
 import { searchInput } from './components/filterPanel/searchInput/searchInput';
 import { EVENTS } from './events/events';
 import { pagingSelect } from './components/filterPanel/paging/pagingSelect';

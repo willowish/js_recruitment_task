@@ -1,6 +1,6 @@
 import { element } from '../common/element/element';
 import './toReadList.css';
-import { getReadLaterList } from '../../services/readLaterService';
+import { getReadLaterList } from '../../services/readLaterService/readLaterService';
 import { toReadEntry } from './toReadEntry/toReadEntry';
 
 export const toReadList = () =>

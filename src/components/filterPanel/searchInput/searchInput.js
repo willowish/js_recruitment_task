@@ -1,5 +1,5 @@
 import { element } from '../../common/element/element';
-import { setSearch } from '../../../services/newsService';
+import { setSearch } from '../../../services/newsService/newsService';
 import { debounce } from '../../../helpers/debounce';
 
 export const searchInput = () => {

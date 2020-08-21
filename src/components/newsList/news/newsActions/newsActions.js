@@ -1,4 +1,4 @@
-import { addNewsToReadLater } from '../../../../services/readLaterService';
+import { addNewsToReadLater } from '../../../../services/readLaterService/readLaterService';
 import { element } from '../../../common/element/element';
 
 export const newsActions = (webUrl) => {
@@ -10,7 +10,12 @@ export const newsActions = (webUrl) => {
         props: { className: 'newsActions' },
         children: [
             element('a', {
-                props: { href: webUrl, className: 'button', innerText: 'Full article' },
+                props: {
+                    href: webUrl,
+                    target: '_blank',
+                    className: 'button',
+                    innerText: 'Full article',
+                },
             }),
             element('button', {
                 props: {

@@ -1,5 +1,5 @@
 import { element } from '../../../../common/element/element';
-import { removeNewsFromReadLater } from '../../../../../services/readLaterService';
+import { removeNewsFromReadLater } from '../../../../../services/readLaterService/readLaterService';
 import { buttonWithIcon } from '../../../../common/buttonWithIcon/buttonWithIcon';
 
 export const buttons = (webUrl) =>
@@ -11,6 +11,7 @@ export const buttons = (webUrl) =>
                 props: {
                     className: 'icon',
                     href: webUrl,
+                    target: '_blank',
                 },
                 children: [
                     element('i', { props: { className: 'fas fa-external-link-alt' } }),

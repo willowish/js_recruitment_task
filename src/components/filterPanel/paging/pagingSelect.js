@@ -1,7 +1,7 @@
 import {
     getNewsPagingInfo,
     setSelectedPage,
-} from '../../../services/newsService';
+} from '../../../services/newsService/newsService';
 import { element } from '../../common/element/element';
 import { buttonWithIcon } from '../../common/buttonWithIcon/buttonWithIcon';
 import './pagingPanel.css';

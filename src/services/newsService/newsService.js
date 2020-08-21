@@ -1,6 +1,9 @@
-import { performGet } from './httpService';
-import { EVENTS } from '../events/events';
-import { getUrlForInitialLoad, getUrlWithFilters } from './utils/urlBuilder';
+import { performGet } from '../httpService';
+import { EVENTS } from '../../events/events';
+import {
+    getUrlForInitialLoad,
+    getUrlWithFilters,
+} from '../utils/urlBuilder/urlBuilder';
 
 const filters = {
     searchText: '',
@@ -51,7 +54,7 @@ export const loadInitialNews = async () => {
     filters.page = currentPage;
 };
 
-export const getNewsList = () => newsListPageable?.list;
+export const getNewsList = () => newsListPageable.list;
 
 export const getNewsPagingInfo = () => ({
     page: filters.page,
