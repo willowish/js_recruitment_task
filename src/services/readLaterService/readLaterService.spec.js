@@ -1,9 +1,10 @@
+import { READ_LATER_KEY } from './localStorageService';
+
 jest.mock('../newsService/newsService');
 
 import {
     addNewsToReadLater,
     getReadLaterList,
-    READ_LATER_KEY,
     removeNewsFromReadLater,
 } from './readLaterService';
 import { list } from '../../mocks/listOfNews';
